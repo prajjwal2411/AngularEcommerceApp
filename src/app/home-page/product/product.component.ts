@@ -11,8 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  @Input() product: any;
-  @Output() productAdded = new EventEmitter();
+  @Output() itemsToCart = new EventEmitter();
 
   //URLs
   public userUrl: any = "http://localhost:3000/userInfo";
@@ -91,10 +90,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(productId){
-    if(localStorage.getItem("userLoggedIn")){
-      //Emitting the data to cart component
-      this.productAdded.emit(productId);
-      
+    if(localStorage.getItem("userLoggedIn")){      
       //Getting the ID of current logged in user
       this.currentUser = localStorage.getItem("userLoggedIn");
 
@@ -107,6 +103,9 @@ export class ProductComponent implements OnInit {
       //Displaying the number of items in the cart every time an item is added.
       this.numberOfItemsInCart = this.tempUser.userCart.length;
             
+      console.log(this.tempUser.userCart);
+
+      //Added Item is pushed into the database
       this.http.put("http://localhost:3000/userInfo/"+`${this.currentUser}`, this.tempUser).subscribe();
 
       alert("Item Added to cart")

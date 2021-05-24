@@ -6,11 +6,17 @@
             <h2>Send an OTP to Verify Your Email Mentioned Below</h2>
             
             <label class="form-label my-0" >Email</label>
-            <input class="form-control" type="email" name="user_email" [(ngModel)]="mail" required>
+            <input class="form-control" type="email" name="email" [(ngModel)]="mail" required>
             
-            <label [hidden]="true">Message</label>
+            <label [hidden]="true">OTP</label>
             <input [hidden]="true" name="message" [(ngModel)]="inputOtp">
-        
+            
+            <label [hidden]="true">AppName</label>
+            <input [hidden]="true" name="appName" [(ngModel)]="appName">
+            
+            <label [hidden]="true">Name</label>
+            <input [hidden]="true" name="some_user" [(ngModel)]="some_user">
+
             <button type="submit" class="btn btn-primary my-3">Send OTP</button>
         </form>
         

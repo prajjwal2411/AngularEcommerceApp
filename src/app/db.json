@@ -16,6 +16,20 @@
       "isLoggedIn": false,
       "isVerified": true,
       "id": 1
+    },
+    {
+      "userName": " Chandler Bing",
+      "userEmail": "bingler2497@gmail.com",
+      "userPwd": "first@user2497",
+      "userConfirmPwd": "first@user2497",
+      "userPhone": 8447052271,
+      "userAdd": "something",
+      "userPin": 241015,
+      "userCart": [],
+      "userWishList": [],
+      "isLoggedIn": false,
+      "isVerified": false,
+      "id": 2
     }
   ],
   "productInfo": [

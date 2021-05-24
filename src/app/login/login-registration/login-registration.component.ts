@@ -29,7 +29,7 @@ export class LoginRegistrationComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       userName: ['', Validators.required],
       userEmail: ['', [Validators.required, Validators.email]],
-      userPwd: ['', Validators.required],
+      userPwd: ['', [Validators.required]],
       userConfirmPwd: ['', [Validators.required]],
       userPhone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       userAdd: ['', Validators.required],

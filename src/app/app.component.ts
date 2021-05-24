@@ -18,8 +18,7 @@ export class AppComponent {
   public toDisplay: boolean = false;
   
   ngOnInit(): void{
-
-  }
+  } 
   
   constructor(
     public router: Router, 
@@ -28,12 +27,12 @@ export class AppComponent {
   
   toLogin(){
     if(!localStorage.getItem("userLoggedIn")){
-    this.router.navigateByUrl('login');}
-    else{
+      this.router.navigateByUrl('login');
+    }else{
       alert("Please Logout First")
     }
   }
-
+  
   toLogout(){
     if(localStorage.getItem("userLoggedIn")){
       localStorage.removeItem("userLoggedIn");
@@ -42,7 +41,7 @@ export class AppComponent {
       alert("Please Login First")
     }
   }
-
+  
   toHome(){
     if(localStorage.getItem("userLoggedIn")){
       this.router.navigateByUrl('home/'+`${this.currentUserId}`);

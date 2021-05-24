@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-verify',
@@ -13,11 +12,15 @@ export class VerifyComponent implements OnInit {
 
   //URLs
   public otp: any;
-  public inputOtp: any;
   public mail: any;
   public info: any;
-
+  
+  public inputOtp: any;
+  public appName: any = "ShopApp";
+  public some_user: any;
+  
   constructor(private http: HttpClient, private router: Router) {
+    this.some_user = "";
     this.mail = "";
     this.inputOtp = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
   }
@@ -34,11 +37,12 @@ export class VerifyComponent implements OnInit {
   
   public thatValue: any = false;
   
-  checkFunction(){
+  checkFunction(){    
     //console.log(this.info);
     this.info.forEach(element => {
       if(this.mail === element.userEmail){
-        //console.log(this.mail)
+        this.some_user = element.userName;
+        //console.log(this.some_user)
         //console.log(element.userEmail)
         this.thatValue = true;
         return;    
@@ -47,8 +51,9 @@ export class VerifyComponent implements OnInit {
   }
 
   public sendEmail(e: Event) {
+    
     this.checkFunction()
-    console.log(this.thatValue);
+    //console.log(this.thatValue);
     
     if(this.thatValue){
     console.log(this.inputOtp);
@@ -62,7 +67,11 @@ export class VerifyComponent implements OnInit {
       });
     }
     else{
-      alert("please enter correct email id");
+      if(this.mail === ""){
+        alert("please enter email id");
+      }else{
+        alert("Please Enter Correct Email ID");
+      }
     }
   }
 

@@ -33,7 +33,7 @@ export class LoginService {
   }
 
   registerCheckFunction(loginFormData) {
-    console.log(this.userInfo);
+    //console.log(this.userInfo);
     //console.log(loginFormData.loginEmail);
     this.userInfo.forEach(element => {
       if (loginFormData.loginEmail === element.userEmail) {
