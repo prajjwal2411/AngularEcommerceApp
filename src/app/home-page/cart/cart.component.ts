@@ -37,7 +37,7 @@ export class CartComponent implements OnInit {
     this.productIds.forEach(element => {
       this.http.get("http://localhost:3000/productInfo/"+`${element}`).subscribe((data)=>{
       this.inCartInfo.push(data);
-      //console.log(this.inCartInfo.id);
+      console.log(this.inCartInfo.id);
     })  
   });
   }  

@@ -8,7 +8,10 @@
       "userPhone": 8447052271,
       "userAdd": "qwe",
       "userPin": 201012,
-      "userCart": [],
+      "userCart": [
+        3,
+        4
+      ],
       "userWishList": [],
       "isLoggedIn": false,
       "isVerified": true,
