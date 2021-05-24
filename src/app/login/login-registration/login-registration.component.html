@@ -1,0 +1,147 @@
+
+<div class="container col-8">
+    <div class="user-wrapper" *ngIf="show">
+        <h1>LOGIN</h1>
+        <div class="my-3">
+            <button type="button" class="btn btn-dark" (click)="toToggle()">
+                {{buttonTitle}}
+            </button>
+
+        </div>
+        <div class="container col-6">
+            <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+            <div class="my-3">
+                <label class="form-label m-0">Email</label>
+                <input class="form-control" type="email" placeholder="Email" 
+                formControlName="loginEmail">
+
+                <div class="text-danger" *ngIf="(returnLoginFormControl.loginEmail.touched || isSubmitted) && returnLoginFormControl.loginEmail.errors?.required">
+                    Email is Required
+                </div>
+                
+                <div class="text-danger" *ngIf="returnLoginFormControl.loginEmail.touched && returnLoginFormControl.loginEmail.errors?.email">
+                    Enter Valid Email
+                </div>
+            </div>
+
+            <div class="my-3">
+                <label class="form-label m-0">Password</label>
+                <input class="form-control" type="password" placeholder="Password"  
+                formControlName="loginPwd">
+
+                <div class="text-danger" *ngIf="(returnLoginFormControl.loginPwd.touched || isSubmitted) && returnLoginFormControl.loginPwd.errors?.required">
+                    Password is Required
+                </div>
+            </div>
+
+            <div class="my-3">
+                <button class="btn btn-primary" type="submit" >User Login</button>                
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <div class="admin-wrapper" *ngIf="!show">
+        <h1>REGISTER</h1>
+        <div class="my-3">
+            <button type="button" class="btn btn-dark" (click)="toToggle()">
+                {{buttonTitle}}
+            </button>
+        </div>
+        <div class="container col-6">
+            <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+                
+                <div class="form-group my-3">
+                    <label class="form-abel m-0">Name</label>
+                    <input id="userName" class="form-control" type="text" placeholder="Enter Name" 
+                    formControlName="userName">
+
+                    <div class="text-danger" *ngIf="(returnFormControl.userName.touched || isSubmitted) && returnFormControl.userName.errors?.required">
+                        Name is Required
+                    </div>
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="form-abel m-0">Email</label>
+                    <input id="userEmail" class="form-control" type="text" placeholder="Enter Email" 
+                    formControlName="userEmail">
+
+                    <div class="text-danger" *ngIf="(returnFormControl.userEmail.touched || isSubmitted) && returnFormControl.userEmail.errors?.required">
+                        Email is Required
+                    </div>
+                    
+                    <div class="text-danger" *ngIf="returnFormControl.userEmail.touched && returnFormControl.userEmail.errors?.email">
+                        Enter Valid Email
+                    </div>
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="form-abel m-0">Password</label>
+                    <input class="form-control" type="password" placeholder="Enter Password"
+                    formControlName="userPwd">
+
+                    <div class="text-danger" *ngIf="(returnFormControl.userPwd.touched || isSubmitted) && returnFormControl.userPwd.errors?.required">
+                        Password is Required
+                    </div>
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="form-abel m-0">Confirm Password</label>
+                    <input class="form-control" type="password" placeholder="Confirm Password" 
+                    formControlName="userConfirmPwd">
+
+                    <div class="text-danger" *ngIf="(returnFormControl.userConfirmPwd.touched || isSubmitted) && returnFormControl.userConfirmPwd.errors?.required">
+                        Confirm Password is Required
+                    </div>
+                    
+                    <div class="text-danger" *ngIf="returnFormControl.userConfirmPwd.touched && returnFormControl.userConfirmPwd.errors?.mustMatch">
+                        Password Does not Match
+                    </div>    
+                </div>
+                
+                <div class="form-group my-3">
+                    <label class="form-abel m-0">Phone Number</label>
+                    <input class="form-control" type="number" placeholder="Phone Number" 
+                    formControlName="userPhone">
+
+                    <div class="text-danger" *ngIf="(returnFormControl.userPhone.touched || isSubmitted) && returnFormControl.userPhone.errors?.required">
+                        Phone Number is Required
+                    </div>
+                    
+                    <div class="text-danger" *ngIf="returnFormControl.userPhone.touched && returnFormControl.userPhone.errors?.pattern">
+                        Enter Valid Phone Number
+                    </div>    
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="form-abel m-0">Address</label>
+                    <input id="userAdd" class="form-control" type="text" placeholder="Enter Address" 
+                    formControlName="userAdd">
+
+                    <div class="text-danger" *ngIf="(returnFormControl.userAdd.touched || isSubmitted) && returnFormControl.userAdd.errors?.required">
+                        Address is Required
+                    </div>
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="form-abel m-0">PIN Code</label>
+                    <input class="form-control" type="number" placeholder="Enter PIN Code of Your Area" 
+                    formControlName="userPin">
+
+                    <div class="text-danger" *ngIf="(returnFormControl.userPin.touched || isSubmitted) && returnFormControl.userPin.errors?.required">
+                        Pin Code is Required
+                    </div>
+                    
+                    <div class="text-danger" *ngIf="returnFormControl.userPin.touched && returnFormControl.userPin.errors?.pattern">
+                        Enter Valid Pin Code
+                    </div>    
+                </div>
+
+                <div class="my-3">
+                    <button class="btn btn-primary" type="submit">Register</button>                
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

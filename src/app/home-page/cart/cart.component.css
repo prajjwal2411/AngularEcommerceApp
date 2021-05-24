@@ -1,0 +1,20 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) repeat(2, .5fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 08px;
+    grid-row-gap: 08px;
+    }
+    
+    .div1 { 
+        grid-area: 1 / 1 / 5 / 4; 
+        
+    }
+    .div2 { 
+        grid-area: 1 / 4 / 5 / 6;
+        
+    }
+
+input{
+    width: 20%;
+}

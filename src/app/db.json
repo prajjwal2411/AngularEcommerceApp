@@ -1,0 +1,180 @@
+{
+  "userInfo": [
+    {
+      "userName": "User1",
+      "userEmail": "user1@gmail.com",
+      "userPwd": "user1",
+      "userConfirmPwd": "user1",
+      "userPhone": 8447052271,
+      "userAdd": "qwe",
+      "userPin": 201012,
+      "userCart": [],
+      "userWishList": [],
+      "isLoggedIn": false,
+      "isVerified": true,
+      "id": 1
+    }
+  ],
+  "productInfo": [
+    {
+      "prodName": "Iphone 12",
+      "prodCat": "Electronics",
+      "prodPrice": 50000,
+      "prodBrand": "Apple",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 1",
+      "prodImage": "../assets/images/iphone12.jpg",
+      "id": 1
+    },
+    {
+      "prodName": "SmartWatch",
+      "prodCat": "Electronics",
+      "prodPrice": 25000,
+      "prodBrand": "Samsung",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 2",
+      "prodImage": "../assets/images/smartwatch.jpg",
+      "id": 2
+    },
+    {
+      "prodName": "Speakers",
+      "prodCat": "Electronics",
+      "prodPrice": 13255,
+      "prodBrand": "Audio Technica",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 3",
+      "prodImage": "../assets/images/speakers.jpg",
+      "id": 3
+    },
+    {
+      "prodName": "Oneplus 9",
+      "prodCat": "Electronics",
+      "prodPrice": 50000,
+      "prodBrand": "Oneplus",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 4",
+      "prodImage": "../assets/images/oneplus.jpg",
+      "id": 4
+    },
+    {
+      "prodName": "Headphones",
+      "prodCat": "Electronics",
+      "prodPrice": 10000,
+      "prodBrand": "JBL",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 5",
+      "prodImage": "../assets/images/headphones.jpg",
+      "id": 5
+    },
+    {
+      "prodName": "Red Shirt",
+      "prodCat": "Clothing",
+      "prodPrice": 600,
+      "prodBrand": "Tommy Hillfigre",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 6",
+      "prodImage": "../assets/images/shirt.jpg",
+      "id": 6
+    },
+    {
+      "prodName": "Nike Shoes",
+      "prodCat": "Clothing",
+      "prodPrice": 3000,
+      "prodBrand": "Nike",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 7",
+      "prodImage": "../assets/images/shoes.jpg",
+      "id": 7
+    },
+    {
+      "prodName": "White Trousers",
+      "prodCat": "Clothing",
+      "prodPrice": 550,
+      "prodBrand": "Raymonds",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 8",
+      "prodImage": "../assets/images/trousers.jpg",
+      "id": 8
+    },
+    {
+      "prodName": "Denim Jacket",
+      "prodCat": "Clothing",
+      "prodPrice": 950,
+      "prodBrand": "Diesel",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 9",
+      "prodImage": "../assets/images/jacket.jpg",
+      "id": 9
+    },
+    {
+      "prodName": "N95 Mask",
+      "prodCat": "Clothing",
+      "prodPrice": 450,
+      "prodBrand": "HRx",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 10",
+      "prodImage": "../assets/images/mask.jpg",
+      "id": 10
+    },
+    {
+      "prodName": "Backpack",
+      "prodCat": "Sports",
+      "prodPrice": 600,
+      "prodBrand": "Skybags",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 11",
+      "prodImage": "../assets/images/backpack.jpg",
+      "id": 11
+    },
+    {
+      "prodName": "Cricket Bat",
+      "prodCat": "Sports",
+      "prodPrice": 3000,
+      "prodBrand": "MRF",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 12",
+      "prodImage": "../assets/images/bat.jpg",
+      "id": 12
+    },
+    {
+      "prodName": "Badminton",
+      "prodCat": "Sports",
+      "prodPrice": 550,
+      "prodBrand": "Yonex",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 13",
+      "prodImage": "../assets/images/badminton.jpg",
+      "id": 13
+    },
+    {
+      "prodName": "Football",
+      "prodCat": "Sports",
+      "prodPrice": 950,
+      "prodBrand": "Nike",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 14",
+      "prodImage": "../assets/images/football.jpg",
+      "id": 14
+    },
+    {
+      "prodName": "Yoga Mats",
+      "prodCat": "Sports",
+      "prodPrice": 450,
+      "prodBrand": "Some Brand",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 15",
+      "prodImage": "../assets/images/yoga.jpg",
+      "id": 15
+    },
+    {
+      "prodName": "Sauce Pan",
+      "prodCat": "Kitchen",
+      "prodPrice": 750,
+      "prodBrand": "Prestige",
+      "prodDesc": "This some description for the product.",
+      "seller": "Seller 16",
+      "prodImage": "../assets/images/pan.jpg",
+      "id": 16
+    }
+  ]
+}
