@@ -1,24 +1,24 @@
 <body>
-  
 <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button>
-        <mat-icon (click)="sidenav.toggle()" >menu</mat-icon>
+        <mat-icon (click)="sidenav.toggle()" ></mat-icon>
       </button>
       <h1>Shopping App</h1>
       <span class="menu-spacer"></span>
       <div class="float-end">
         <a mat-button (click)="toLogin()"> Login </a>
         <a mat-button (click)="toLogout()"> Logout </a>
+        {{product}}
       </div>
     </mat-toolbar-row>
-      
-    </mat-toolbar>
-  
+
+  </mat-toolbar>
+
   <mat-sidenav-container>
     <mat-sidenav #sidenav>
       <mat-nav-list>
-  
+        
         <a mat-list-item (click)="toHome()"> Products </a>
         <a *ngIf="toDisplay" mat-list-item> Wishlist </a>
         <a *ngIf="toDisplay" mat-list-item> Profile </a>
@@ -33,3 +33,9 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </body>
+
+
+<!-- COMMANDS TO DEPLOY ANGULAR PROJECT ON GITHUB -->
+<!-- npm i -g angular-cli-ghpages //INSTALL PACKAGE TO DEPLOY ANGULAR APPLICATION ON GITHUB --> 
+<!-- ng build --prod --base-href "https://<username.github.io/<repository name>"-->
+<!--  -->

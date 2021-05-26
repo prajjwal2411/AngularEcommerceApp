@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { ToCartService } from '../../Services/to-cart.service';
 
 @Component({
   selector: 'app-product',
@@ -11,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  @Output() itemsToCart = new EventEmitter();
-
+  @Output() newItemInCart = new EventEmitter();
+  
   //URLs
   public userUrl: any = "http://localhost:3000/userInfo";
   public productUrl: any = "http://localhost:3000/productInfo";
@@ -31,11 +32,13 @@ export class ProductComponent implements OnInit {
   public sortSelect: any;
 
   public tempUser: any;
+  public tempProducts: any = [];
 
   constructor(
     public http: HttpClient, 
     public _route: ActivatedRoute,
     public router: Router,
+    public inCartItem: ToCartService,
     ) {
       this.searchText = "";
       this.sortSelect = "";
@@ -44,15 +47,24 @@ export class ProductComponent implements OnInit {
     ngOnInit(): void {
       this.routeSub = this._route.params.subscribe(params => {
         this.currentUserId = params['id'];
+        //console.log(this.currentUserId);
       })
       
       this.getData();
+      
       if(localStorage.getItem("userLogggedIn")){
         this.numberOfItemsInCart = this.userInfo.userCart.length;
       }else{
         this.numberOfItemsInCart = 0;
       }
+
+      //console.log(this.toCartItem.fetchAlreadyInCartProducts);
   }
+
+  // addItemToCart(product){
+  //   this.newItemInCart.emit(product)
+  // }
+
 
   getData(){
     //Fetching User's Data
@@ -89,7 +101,7 @@ export class ProductComponent implements OnInit {
     this.searchText = event.target.value;
   }
 
-  addToCart(productId){
+  addToCart(product, wholeProduct){
     if(localStorage.getItem("userLoggedIn")){      
       //Getting the ID of current logged in user
       this.currentUser = localStorage.getItem("userLoggedIn");
@@ -98,13 +110,14 @@ export class ProductComponent implements OnInit {
       this.tempUser = this.userInfo[this.currentUser - 1];
 
       //Pushing the item in the user's cart array
-      this.tempUser.userCart.push(productId);
+      this.tempUser.userCart.push(product);
+
+      //TRYING THE EVENT EMITTER FOR ITEMS IN CART
+      this.newItemInCart.emit(wholeProduct);
 
       //Displaying the number of items in the cart every time an item is added.
       this.numberOfItemsInCart = this.tempUser.userCart.length;
-            
-      console.log(this.tempUser.userCart);
-
+  
       //Added Item is pushed into the database
       this.http.put("http://localhost:3000/userInfo/"+`${this.currentUser}`, this.tempUser).subscribe();
 
@@ -112,7 +125,7 @@ export class ProductComponent implements OnInit {
     }
     else{
       alert("Please Login First If you want to buy something")
-    }
+    }  
   }
 
   toCheckoutPage(){

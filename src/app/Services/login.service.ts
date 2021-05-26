@@ -33,6 +33,7 @@ export class LoginService {
   }
 
   registerCheckFunction(loginFormData) {
+    this.getData();
     //console.log(this.userInfo);
     //console.log(loginFormData.loginEmail);
     this.userInfo.forEach(element => {

@@ -9,8 +9,8 @@ import { LoginService } from '../../Services/login.service';
   templateUrl: './login-registration.component.html',
   styleUrls: ['./login-registration.component.css']
 })
-export class LoginRegistrationComponent implements OnInit {
 
+export class LoginRegistrationComponent implements OnInit {
   //Global Variables
   public isSubmitted: Boolean = false;
 

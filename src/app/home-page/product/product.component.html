@@ -37,17 +37,21 @@
                     <p>{{product.prodDesc}}</p>
                     <p> <strong>Price: ₹</strong> {{product.prodPrice}}</p>
                 </mat-card-content>
-                <mat-card-actions class="d-flex justify-content-evenly align-items-center">
+                
+                <mat-card-actions class="d-flex justify-content-evenly align-items-center">    
                     <button mat-mini-fab color="primary" matTooltip="Add to Wishlist">
                         <mat-icon>favorite</mat-icon>
                     </button>
+                    
                     <button mat-mini-fab color="primary" matTooltip="Buy">
                         <mat-icon>payments</mat-icon>
                     </button>
-                    <button mat-mini-fab type="button" color="primary" matTooltip="Add to Cart" (click)="addToCart(product.id)">
+                    
+                    <button mat-mini-fab type="button" color="primary" matTooltip="Add to Cart" (click)="addToCart(product.id, product)">
                         <mat-icon>shopping_cart</mat-icon>
-                    </button>
+                    </button>                
                 </mat-card-actions>
+            
             </mat-card>
         </div>
     </div>

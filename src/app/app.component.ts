@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver, Input, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -16,16 +16,19 @@ export class AppComponent {
   public itemsInCart = 0;
 
   public toDisplay: boolean = false;
-  
+
   ngOnInit(): void{
   } 
   
   constructor(
-    public router: Router, 
+    public router: Router,
+    private viewContainerRef: ViewContainerRef,
+    private cfr: ComponentFactoryResolver
     ) {}
-    
   
-  toLogin(){
+  @Input() product: any;
+
+  async toLogin(){
     if(!localStorage.getItem("userLoggedIn")){
       this.router.navigateByUrl('login');
     }else{
@@ -49,7 +52,4 @@ export class AppComponent {
       this.router.navigateByUrl('home');
     }
   }
-
-  
-
 }

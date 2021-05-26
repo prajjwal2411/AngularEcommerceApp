@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RegisterService } from '../../Services/register.service';
 
 @Component({
   selector: 'app-verify',
@@ -10,67 +11,69 @@ import { Router } from '@angular/router';
 })
 export class VerifyComponent implements OnInit {
 
-  //URLs
-  public otp: any;
-  public mail: any;
-  public info: any;
-  
-  public inputOtp: any;
-  public appName: any = "ShopApp";
+  public userUrl: any = "http://localhost:3000/userInfo";
+
+  public userInfo: any;
+  public thatValue: any;
+  public mail: string;
   public some_user: any;
-  
-  constructor(private http: HttpClient, private router: Router) {
+  public inputOtp: any;
+  public otp: any;
+  public appName: any = "ShopApp";
+
+  constructor(private http: HttpClient, private router: Router, private fromRegister: RegisterService) {
     this.some_user = "";
     this.mail = "";
     this.inputOtp = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
   }
-  
+
   ngOnInit(): void {
     this.getData();
   }
-  
-  getData(){
-    this.http.get("http://localhost:3000/userInfo").subscribe((data) => {
-      this.info = data;
+
+  getData() {
+    //Fetching User's Data
+    this.http.get("http://localhost:3000/userInfo").subscribe(data => {
+      this.userInfo = data
     })
   }
-  
-  public thatValue: any = false;
-  
-  checkFunction(){    
-    //console.log(this.info);
-    this.info.forEach(element => {
-      if(this.mail === element.userEmail){
+
+  checkFunction() {
+    //console.log(this.userInfo);
+    this.userInfo.forEach(element => {
+      if (this.mail === element.userEmail) {
         this.some_user = element.userName;
         //console.log(this.some_user)
-        //console.log(element.userEmail)
+        //console.log(this.currentUserInfo.userEmail)
         this.thatValue = true;
-        return;    
+      } else {
+        return;
       }
-    });
+    })
   }
 
   public sendEmail(e: Event) {
-    
+    this.getData();
     this.checkFunction()
     //console.log(this.thatValue);
-    
-    if(this.thatValue){
-    console.log(this.inputOtp);
-    
-    e.preventDefault();
-    emailjs.sendForm('service_hmf1brw', 'template_tiw81rh', e.target as HTMLFormElement, 'user_e2APVICPX2gilPF7lkoEA')
-    .then((result: EmailJSResponseStatus) => {
-      console.log(result.text);
-    }, (error) => {
-      console.log(error.text);
-      });
+    //console.log(this.userInfo);
+
+    if (this.thatValue) {
+      console.log(this.inputOtp);
+      e.preventDefault();
+      emailjs.sendForm('service_hmf1brw', 'template_tiw81rh', e.target as HTMLFormElement, 'user_e2APVICPX2gilPF7lkoEA')
+        .then((result: EmailJSResponseStatus) => {
+          console.log(result.text);
+          alert("OTP Sent Please Check your Mail")
+        }, (error) => {
+          console.log(error.text);
+        });
     }
-    else{
-      if(this.mail === ""){
+    else {
+      if (this.mail === "") {
         alert("please enter email id");
-      }else{
-        alert("Please Enter Correct Email ID");
+      } else {
+        console.log("none");
       }
     }
   }
@@ -79,17 +82,15 @@ export class VerifyComponent implements OnInit {
     if (this.otp == this.inputOtp) {
       alert("You are Verified Now, You Will be Redirected to Login Page");
       this.otp = "";
-
-      this.info.forEach(element => {
-        if((this.mail === element.userEmail) && (element.isVerified == false))
-        {
+      this.userInfo.forEach(element => {
+        if ((this.mail === element.userEmail) && (element.isVerified == false)) {
           element.isVerified = true;
-          this.http.put("http://localhost:3000/userInfo"+'/'+element.id.toString(), element).subscribe((data)=>{})
+          //console.log(element);
+          this.http.put("http://localhost:3000/userInfo" + '/' + element.id.toString(), element).subscribe((data) => { })
           this.router.navigateByUrl('login');
         }
-      });
-    } 
+      })
+    }
   }
-
- 
 }
+

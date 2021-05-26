@@ -12,6 +12,8 @@ export class RegisterService {
 
   public userInfo: any;
 
+  public toVerification: any;
+
   constructor(
     public http: HttpClient,
     public router: Router

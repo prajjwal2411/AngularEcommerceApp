@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
 
 import { FilterPipePipe } from '../Pipes/filter-pipe.pipe'
 import { LoginGuard } from '../Guards/login.guard';
@@ -15,7 +16,6 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from  '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CartComponent } from './cart/cart.component';
 
 const homeRoutes: Routes = [
   {
