@@ -21,12 +21,13 @@ export class RegisterService {
     this.getData();}
 
    ngOnInit() {
-    
+     this.getData();
    }
 
   getData(){
-    this.http.get(this.userUrl).subscribe(data => {
+    this.http.get("http://localhost:3000/userInfo").subscribe(data => {
       this.userInfo = data;
+      //console.log(this.userInfo);
     })
   } 
 

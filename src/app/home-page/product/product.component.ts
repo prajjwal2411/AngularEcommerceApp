@@ -12,8 +12,6 @@ import { ToCartService } from '../../Services/to-cart.service';
 })
 export class ProductComponent implements OnInit {
 
-  @Output() newItemInCart = new EventEmitter();
-  
   //URLs
   public userUrl: any = "http://localhost:3000/userInfo";
   public productUrl: any = "http://localhost:3000/productInfo";
@@ -57,14 +55,7 @@ export class ProductComponent implements OnInit {
       }else{
         this.numberOfItemsInCart = 0;
       }
-
-      //console.log(this.toCartItem.fetchAlreadyInCartProducts);
   }
-
-  // addItemToCart(product){
-  //   this.newItemInCart.emit(product)
-  // }
-
 
   getData(){
     //Fetching User's Data
@@ -111,10 +102,7 @@ export class ProductComponent implements OnInit {
 
       //Pushing the item in the user's cart array
       this.tempUser.userCart.push(product);
-
-      //TRYING THE EVENT EMITTER FOR ITEMS IN CART
-      this.newItemInCart.emit(wholeProduct);
-
+      
       //Displaying the number of items in the cart every time an item is added.
       this.numberOfItemsInCart = this.tempUser.userCart.length;
   
@@ -138,4 +126,13 @@ export class ProductComponent implements OnInit {
     }
   }
 
+  sendProduct(wholeProduct){
+    if(localStorage.getItem("userLoggedIn")){      
+      this.inCartItem.addToCart(wholeProduct);
+      alert("Item added to the Cart");
+    }
+    else{
+      alert("Please Login First If you want to buy something")
+    }
+  }
 }

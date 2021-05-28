@@ -22,7 +22,6 @@
         </div>
     </div>  
 </mat-card>
-
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let product of productInfo | filterPipe : searchText">
@@ -35,7 +34,7 @@
                 <img mat-card-image src={{product.prodImage}}>
                 <mat-card-content>
                     <p>{{product.prodDesc}}</p>
-                    <p> <strong>Price: ₹</strong> {{product.prodPrice}}</p>
+                    <p ><strong>Price: ₹</strong> {{product.prodPrice}}</p>
                 </mat-card-content>
                 
                 <mat-card-actions class="d-flex justify-content-evenly align-items-center">    

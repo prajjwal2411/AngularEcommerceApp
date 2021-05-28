@@ -14,8 +14,6 @@ export class LoginService {
   public ifRegistered: boolean = false;
   public locationId: number;
 
-  
-
   constructor(
     public http: HttpClient,
     public router: Router
@@ -71,7 +69,7 @@ export class LoginService {
       }
     }
     else {
-      alert("Not Registered");
+      console.log("none");
     }
   }
 

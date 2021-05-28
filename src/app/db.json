@@ -1,23 +1,18 @@
 {
   "userInfo": [
     {
-      "userName": "User 1",
-      "userEmail": "user1@gmail.com",
-      "userPwd": "user1",
-      "userConfirmPwd": "user1",
+      "userName": "Prajjwal",
+      "userEmail": "q@w.co",
+      "userPwd": "some",
+      "userConfirmPwd": "some",
       "userPhone": 8447052271,
-      "userAdd": "some",
+      "userAdd": "sme",
       "userPin": 201012,
-      "userCart": [
-        3,
-        1,
-        3,
-        2,
-        4
-      ],
+      "userCartTry": [],
+      "userCart": [],
       "userWishList": [],
       "isLoggedIn": false,
-      "isVerified": true,
+      "isVerified": false,
       "id": 1
     }
   ],
@@ -28,6 +23,7 @@
       "prodPrice": 50000,
       "prodBrand": "Apple",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 1",
       "prodImage": "../assets/images/iphone12.jpg",
       "id": 1
@@ -38,6 +34,7 @@
       "prodPrice": 25000,
       "prodBrand": "Samsung",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 2",
       "prodImage": "../assets/images/smartwatch.jpg",
       "id": 2
@@ -48,6 +45,7 @@
       "prodPrice": 13255,
       "prodBrand": "Audio Technica",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 3",
       "prodImage": "../assets/images/speakers.jpg",
       "id": 3
@@ -58,6 +56,7 @@
       "prodPrice": 50000,
       "prodBrand": "Oneplus",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 4",
       "prodImage": "../assets/images/oneplus.jpg",
       "id": 4
@@ -68,6 +67,7 @@
       "prodPrice": 10000,
       "prodBrand": "JBL",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 5",
       "prodImage": "../assets/images/headphones.jpg",
       "id": 5
@@ -78,6 +78,7 @@
       "prodPrice": 600,
       "prodBrand": "Tommy Hillfigre",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 6",
       "prodImage": "../assets/images/shirt.jpg",
       "id": 6
@@ -88,6 +89,7 @@
       "prodPrice": 3000,
       "prodBrand": "Nike",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 7",
       "prodImage": "../assets/images/shoes.jpg",
       "id": 7
@@ -98,6 +100,7 @@
       "prodPrice": 550,
       "prodBrand": "Raymonds",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 8",
       "prodImage": "../assets/images/trousers.jpg",
       "id": 8
@@ -108,6 +111,7 @@
       "prodPrice": 950,
       "prodBrand": "Diesel",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 9",
       "prodImage": "../assets/images/jacket.jpg",
       "id": 9
@@ -118,6 +122,7 @@
       "prodPrice": 450,
       "prodBrand": "HRx",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 10",
       "prodImage": "../assets/images/mask.jpg",
       "id": 10
@@ -128,6 +133,7 @@
       "prodPrice": 600,
       "prodBrand": "Skybags",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 11",
       "prodImage": "../assets/images/backpack.jpg",
       "id": 11
@@ -138,6 +144,7 @@
       "prodPrice": 3000,
       "prodBrand": "MRF",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 12",
       "prodImage": "../assets/images/bat.jpg",
       "id": 12
@@ -148,6 +155,7 @@
       "prodPrice": 550,
       "prodBrand": "Yonex",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 13",
       "prodImage": "../assets/images/badminton.jpg",
       "id": 13
@@ -158,6 +166,7 @@
       "prodPrice": 950,
       "prodBrand": "Nike",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 14",
       "prodImage": "../assets/images/football.jpg",
       "id": 14
@@ -168,6 +177,7 @@
       "prodPrice": 450,
       "prodBrand": "Some Brand",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 15",
       "prodImage": "../assets/images/yoga.jpg",
       "id": 15
@@ -178,6 +188,7 @@
       "prodPrice": 750,
       "prodBrand": "Prestige",
       "prodDesc": "This some description for the product.",
+      "prodQty": 1,
       "seller": "Seller 16",
       "prodImage": "../assets/images/pan.jpg",
       "id": 16

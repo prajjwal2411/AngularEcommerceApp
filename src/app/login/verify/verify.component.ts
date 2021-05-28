@@ -60,14 +60,20 @@ export class VerifyComponent implements OnInit {
 
     if (this.thatValue) {
       console.log(this.inputOtp);
-      e.preventDefault();
-      emailjs.sendForm('service_hmf1brw', 'template_tiw81rh', e.target as HTMLFormElement, 'user_e2APVICPX2gilPF7lkoEA')
-        .then((result: EmailJSResponseStatus) => {
-          console.log(result.text);
-          alert("OTP Sent Please Check your Mail")
-        }, (error) => {
-          console.log(error.text);
-        });
+
+      
+      //EMAIL SENDING CODE COMMENTED TO SAVE EMAILS UNCOMMENT WHILE SHOWING
+      // e.preventDefault();
+      // emailjs.sendForm('service_hmf1brw', 'template_tiw81rh', e.target as HTMLFormElement, 'user_e2APVICPX2gilPF7lkoEA')
+      //   .then((result: EmailJSResponseStatus) => {
+      //     console.log(result.text);
+      //     alert("OTP Sent Please Check your Mail")
+      //   }, (error) => {
+      //     console.log(error.text);
+      //   });
+      //EMAIL SENDING CODE COMMENTED TO SAVE EMAILS UNCOMMENT WHILE SHOWING
+
+
     }
     else {
       if (this.mail === "") {

@@ -1,46 +1,43 @@
 <div class="container mt-3">
     <div class="parent">
-        <div class="div1 " > 
-            <mat-card class="mb-3" *ngFor="let item of inCartInfo"><!--*ngFor="let num of [1,2,3,4,5,6,7]" LOOP WILL BE HERE-->
+        <div class="div1 ">
+            <mat-card class="mb-3" *ngFor="let item of items">
+                <!--*ngFor="let num of [1,2,3,4,5,6,7]" LOOP WILL BE HERE-->
                 <div class="row">
                     <div class="col">
-                <mat-card-header>
-                    <mat-card-title>{{item.prodName}}</mat-card-title>
-                    <mat-card-subtitle>{{item.prodBrand}}</mat-card-subtitle>
-                  </mat-card-header>
-                  <img mat-card-sm-image src={{item.prodImage}}>
-                </div>
-                <div class="col">
-                  <mat-card-content>
-                    <p>{{item.prodDesc}}</p>
-                    <p> <strong>Seller:</strong>{{item.seller}}</p>
-                    <p> <strong>Price:</strong>{{item.prodPrice}}</p>
-                    <div class="d-flex">
-                    <button mat-mini-fab color="primary">
-                        <mat-icon>remove</mat-icon>
-                    </button>
-                    <input class="mx-2 form-control form-control-sm" placeholder="Quantity" readonly>
-                    <button mat-mini-fab color="primary">
-                        <mat-icon>add</mat-icon>
-                    </button>
+                        <mat-card-header>
+                            <mat-card-title>{{item.prodName}}</mat-card-title>
+                            <mat-card-subtitle>{{item.prodBrand}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-sm-image src={{item.prodImage}}>
                     </div>
-                  </mat-card-content>
+                    <div class="col">
+                        <mat-card-content>
+                            <p>{{item.prodDesc}}</p>
+                            <p> <strong>Seller:</strong>{{item.seller}}</p>
+                            <p> <strong>Price:</strong>{{item.prodPrice}}</p>
+                            <!--<div class="d-flex">
+                                <button mat-mini-fab color="primary">
+                                    <mat-icon>remove</mat-icon>
+                                </button>
+                                <input *ngIf="visible" class="mx-2 form-control form-control-sm" placeholder="Quantity" readonly value="{{item.prodQuantity}}">
+                                <button mat-mini-fab color="primary">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div>-->
+                        </mat-card-content>
+                    </div>
                 </div>
-                </div>
-            </mat-card> 
+            </mat-card>
         </div>
-        
-        <div class="div2 float-end"> 
+        <div class="div2 float-end">
             <mat-card>
                 <mat-card-title>Grand Total</mat-card-title>
                 <mat-card-content>
                     <p>{{grandTotal}} ₹</p>
-                    <button mat-raised-button color="primary">
-                        Buy
-                    </button>
-                  </mat-card-content>
-            </mat-card> 
+                    <button mat-raised-button color="primary">Buy</button>
+                </mat-card-content>
+            </mat-card>
         </div>
-    
     </div>
 </div>

@@ -13,6 +13,7 @@ import { LoginService } from '../../Services/login.service';
 export class LoginRegistrationComponent implements OnInit {
   //Global Variables
   public isSubmitted: Boolean = false;
+  public userInfo :any;
 
   ngOnInit(): void {
     localStorage.removeItem("userLoggedIn");
@@ -34,6 +35,7 @@ export class LoginRegistrationComponent implements OnInit {
       userPhone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       userAdd: ['', Validators.required],
       userPin: ['', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]{2}[0-9]{3}$')]],
+      userCartTry: [[]],
       userCart: [[]],
       userWishList: [[]],
       isLoggedIn: false,
