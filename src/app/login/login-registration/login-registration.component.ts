@@ -13,11 +13,8 @@ import { LoginService } from '../../Services/login.service';
 export class LoginRegistrationComponent implements OnInit {
   //Global Variables
   public isSubmitted: Boolean = false;
-  public userInfo :any;
-
-  ngOnInit(): void {
-    localStorage.removeItem("userLoggedIn");
-  }
+  public userInfo: any;
+  public userUrl = "http://localhost:3000/userInfo"
 
   constructor(
     public formBuilder: FormBuilder,
@@ -25,34 +22,58 @@ export class LoginRegistrationComponent implements OnInit {
     public regService: RegisterService,
     public logService: LoginService
     ) {   
+      
+      //Start - Register Form
+      this.registerForm = this.formBuilder.group({
+        userName: ['', Validators.required],
+        userEmail: ['', [Validators.required, Validators.email]],
+        userPwd: ['', [Validators.required]],
+        userConfirmPwd: ['', [Validators.required]],
+        userPhone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+        userAdd: ['', Validators.required],
+        userPin: ['', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]{2}[0-9]{3}$')]],
+        userCartTry: [[]],
+        userCart: [[]],
+        userWishList: [[]],
+        isLoggedIn: false,
+        isVerified: false
+      },{
+        validator: this.checkIfMatchingPasswords('userPwd', 'userConfirmPwd')
+      });
+      //End - Register Form
+      
+      //Start - Login Form
+      this.loginForm = this.formBuilder.group({
+        loginEmail: ['', [Validators.required, Validators.email]],
+        loginPwd: ['', Validators.required],
+      });
+      //End - Register Form
+    }
+    
+    ngOnInit(): void {
+      localStorage.removeItem("userLoggedIn");
+      this.getData();
+    }
 
-    //Start - Register Form
-    this.registerForm = this.formBuilder.group({
-      userName: ['', Validators.required],
-      userEmail: ['', [Validators.required, Validators.email]],
-      userPwd: ['', [Validators.required]],
-      userConfirmPwd: ['', [Validators.required]],
-      userPhone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      userAdd: ['', Validators.required],
-      userPin: ['', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]{2}[0-9]{3}$')]],
-      userCartTry: [[]],
-      userCart: [[]],
-      userWishList: [[]],
-      isLoggedIn: false,
-      isVerified: false
-    },{
-      validator: this.checkIfMatchingPasswords('userPwd', 'userConfirmPwd')
-    });
-    //End - Register Form
+  getData(){
+    var loading = true;
+    var errorMessage = "";
 
-    //Start - Login Form
-    this.loginForm = this.formBuilder.group({
-      loginEmail: ['', [Validators.required, Validators.email]],
-      loginPwd: ['', Validators.required],
+    this.logService.getUserData().subscribe(response => {
+      //console.log('Response Received')
+      setTimeout(() => {
+        this.userInfo = response;
+      }, 2000);
+    }, (error)=>{
+      //console.error("Request failed with error");
+      errorMessage = error;
+      loading = false;
+    },() => {
+      //console.log('Request Completed')
+      loading = false;
     });
-    //End - Register Form
   }
-
+    
   //Start - Variables, Validation, FormControl & Submit Function of Login Form
   public loginForm: FormGroup;
 
@@ -68,7 +89,6 @@ export class LoginRegistrationComponent implements OnInit {
   get returnLoginFormControl(){
     return this.loginForm.controls;
   }
-
   //End - Variables, Validation, FormControl & Submit Function of Login Form
 
   //Start - Variables, Validation, FormControl & Submit Function of Register Form

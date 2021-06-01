@@ -41,9 +41,9 @@ export class CartComponent implements OnInit {
       productInfo.forEach(element => {
         this.http.get("http://localhost:3000/productInfo/"+`${element}`).subscribe((data)=>{
           this.productsInCart.push(data);
+          //this.grandTotal += this.productsInCart.prodPrice;
         })
       })  
-      //this.grandTotal += this.productsInCart.prodPrice;
     }
     
     public items =  this.cartService.getItems(); 

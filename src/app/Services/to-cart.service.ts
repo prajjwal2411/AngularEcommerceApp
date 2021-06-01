@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToCartService {
 
+  public productUrl = "http://localhost:3000/productInfo";
+  public userUrl = "http://localhost:3000/userInfo/";
+
   constructor(public http: HttpClient) {}
 
   public itemsInCart = [];
   public pricesOfItemsInCart = [];
+
+  getData(userID):Observable<any>{
+    return this.http.get(this.userUrl+userID.toString());
+  }
 
   addToCart(product){
     this.itemsInCart.push(product);

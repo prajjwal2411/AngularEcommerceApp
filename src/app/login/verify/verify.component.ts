@@ -3,6 +3,7 @@ import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RegisterService } from '../../Services/register.service';
+import { LoginService } from '../../Services/login.service';
 
 @Component({
   selector: 'app-verify',
@@ -21,7 +22,12 @@ export class VerifyComponent implements OnInit {
   public otp: any;
   public appName: any = "ShopApp";
 
-  constructor(private http: HttpClient, private router: Router, private fromRegister: RegisterService) {
+  constructor(
+    private http: HttpClient, 
+    private router: Router, 
+    private fromRegister: RegisterService,
+    private fromLogin: LoginService
+    ) {
     this.some_user = "";
     this.mail = "";
     this.inputOtp = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
@@ -32,10 +38,22 @@ export class VerifyComponent implements OnInit {
   }
 
   getData() {
-    //Fetching User's Data
-    this.http.get("http://localhost:3000/userInfo").subscribe(data => {
-      this.userInfo = data
-    })
+    var loading = true;
+    var errorMessage = "";
+
+    this.fromLogin.getUserData().subscribe((response)=>{
+      console.log('response received');
+      setTimeout(() => {
+        this.userInfo = response;
+      }, 2000);
+    },(error) => {
+      console.error("Request failed with error");
+      errorMessage = error;
+      loading = false;
+    },() => {
+      console.log('Request Completed');
+      loading = false;
+    });
   }
 
   checkFunction() {
@@ -61,7 +79,6 @@ export class VerifyComponent implements OnInit {
     if (this.thatValue) {
       console.log(this.inputOtp);
 
-      
       //EMAIL SENDING CODE COMMENTED TO SAVE EMAILS UNCOMMENT WHILE SHOWING
       e.preventDefault();
       emailjs.sendForm('service_hmf1brw', 'template_tiw81rh', e.target as HTMLFormElement, 'user_e2APVICPX2gilPF7lkoEA')
@@ -72,8 +89,6 @@ export class VerifyComponent implements OnInit {
           console.log(error.text);
         });
       //EMAIL SENDING CODE COMMENTED TO SAVE EMAILS UNCOMMENT WHILE SHOWING
-
-
     }
     else {
       if (this.mail === "") {
@@ -98,5 +113,6 @@ export class VerifyComponent implements OnInit {
       })
     }
   }
+
 }
 
