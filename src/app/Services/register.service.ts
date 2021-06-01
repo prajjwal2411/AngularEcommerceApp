@@ -10,6 +10,7 @@ export class RegisterService {
   public userUrl: any = "http://localhost:3000/userInfo";
   public productUrl: any = "http://localhost:3000/productInfo"
 
+  public currentUserInfo: any;
   public userInfo: any;
 
   public toVerification: any;
@@ -22,6 +23,8 @@ export class RegisterService {
 
    ngOnInit() {
      this.getData();
+     console.log();
+     
    }
 
   getData(){

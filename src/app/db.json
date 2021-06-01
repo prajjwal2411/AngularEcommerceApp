@@ -1,19 +1,38 @@
 {
   "userInfo": [
     {
-      "userName": "Prajjwal",
-      "userEmail": "q@w.co",
+      "userName": "Some",
+      "userEmail": "s@s.co",
       "userPwd": "some",
       "userConfirmPwd": "some",
       "userPhone": 8447052271,
-      "userAdd": "sme",
+      "userAdd": "some",
       "userPin": 201012,
       "userCartTry": [],
       "userCart": [],
       "userWishList": [],
       "isLoggedIn": false,
-      "isVerified": false,
+      "isVerified": true,
       "id": 1
+    },
+    {
+      "userName": "some",
+      "userEmail": "a@b",
+      "userPwd": "some",
+      "userConfirmPwd": "some",
+      "userPhone": 8447052271,
+      "userAdd": "some",
+      "userPin": 201011,
+      "userCartTry": [],
+      "userCart": [
+        1,
+        1,
+        1
+      ],
+      "userWishList": [],
+      "isLoggedIn": false,
+      "isVerified": true,
+      "id": 2
     }
   ],
   "productInfo": [

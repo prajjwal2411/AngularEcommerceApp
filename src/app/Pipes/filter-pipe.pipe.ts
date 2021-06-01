@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+  import { Pipe, PipeTransform } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 const { isArray } = Array;
 

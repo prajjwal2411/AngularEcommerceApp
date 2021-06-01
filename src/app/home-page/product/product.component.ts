@@ -89,6 +89,7 @@ export class ProductComponent implements OnInit {
   }
         
   searchFunction(event){
+    //console.log(event.target.value);
     this.searchText = event.target.value;
   }
 

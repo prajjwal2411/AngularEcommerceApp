@@ -90,7 +90,7 @@ export class LoginRegistrationComponent implements OnInit {
   get returnFormControl(){
     return this.registerForm.controls;
   }
- 
+
   registerSubmit(){
     this.isSubmitted = true;
     if(this.registerForm.valid)
