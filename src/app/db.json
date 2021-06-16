@@ -9,15 +9,33 @@
       "userAdd": "some",
       "userPin": 201012,
       "userCartTry": [],
-      "userCart": [],
+      "userCart": [
+        3,
+        2
+      ],
       "userWishList": [],
       "isLoggedIn": false,
       "isVerified": true,
       "id": 1
     },
     {
-      "userName": "Chandler",
-      "userEmail": "bingler2497@gmail.com",
+      "userName": "Prajjwal",
+      "userEmail": "p@h.co",
+      "userPwd": "some",
+      "userConfirmPwd": "some",
+      "userPhone": 8447052271,
+      "userAdd": "some",
+      "userPin": 201012,
+      "userCartTry": [],
+      "userCart": [],
+      "userWishList": [],
+      "isLoggedIn": false,
+      "isVerified": false,
+      "id": 2
+    },
+    {
+      "userName": "some",
+      "userEmail": "a@b.co",
       "userPwd": "some",
       "userConfirmPwd": "some",
       "userPhone": 8447052271,
@@ -25,14 +43,12 @@
       "userPin": 201012,
       "userCartTry": [],
       "userCart": [
-        3,
-        3,
-        3
+        2
       ],
       "userWishList": [],
       "isLoggedIn": false,
       "isVerified": true,
-      "id": 2
+      "id": 3
     }
   ],
   "productInfo": [

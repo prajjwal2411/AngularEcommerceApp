@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToCartService } from '../../Services/to-cart.service';
+import { GetDataService } from '../../Services/get-data.service';
 
 @Component({
   selector: 'app-product',
@@ -37,6 +38,7 @@ export class ProductComponent implements OnInit {
     public _route: ActivatedRoute,
     public router: Router,
     public inCartItem: ToCartService,
+    public userData: GetDataService
     ) {
       this.searchText = "";
       this.sortSelect = "";
@@ -70,7 +72,7 @@ export class ProductComponent implements OnInit {
   }
 
   sort(someValue){
-    
+
     switch (someValue.value){
       case "low":{
         this.productInfo = this.productInfo.sort((low, high) => low.prodPrice - high.prodPrice)
@@ -95,6 +97,7 @@ export class ProductComponent implements OnInit {
 
   addToCart(product, wholeProduct){
     if(localStorage.getItem("userLoggedIn")){      
+      
       //Getting the ID of current logged in user
       this.currentUser = localStorage.getItem("userLoggedIn");
 

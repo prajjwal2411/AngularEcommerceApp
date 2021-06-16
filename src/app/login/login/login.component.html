@@ -1,0 +1,40 @@
+<div class="container col-8">
+    <div class="user-wrapper">
+        <h1>LOGIN</h1>
+        <div class="my-3">
+            <button type="button" class="btn btn-primary" (click)="toRegister()">Register</button>
+        </div>
+        <div class="container col-6">
+            <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+                <div class="my-3">
+                    <label class="form-label m-0">Email</label>
+                    <input class="form-control" type="email" placeholder="Email" formControlName="loginEmail">
+
+                    <div class="text-danger"
+                        *ngIf="(returnLoginFormControl.loginEmail.touched || isSubmitted) && returnLoginFormControl.loginEmail.errors?.required">
+                        Email is Required
+                    </div>
+
+                    <div class="text-danger"
+                        *ngIf="returnLoginFormControl.loginEmail.touched && returnLoginFormControl.loginEmail.errors?.email">
+                        Enter Valid Email
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <label class="form-label m-0">Password</label>
+                    <input class="form-control" type="password" placeholder="Password" formControlName="loginPwd">
+
+                    <div class="text-danger"
+                        *ngIf="(returnLoginFormControl.loginPwd.touched || isSubmitted) && returnLoginFormControl.loginPwd.errors?.required">
+                        Password is Required
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <button class="btn btn-primary" type="submit">User Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

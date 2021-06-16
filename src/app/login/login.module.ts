@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { LoginRegistrationComponent } from './login-registration/login-registration.component';
+import { VerifyComponent } from './verify/verify.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
 
 import { MatInputModule } from '@angular/material/input';
-import { VerifyComponent } from './verify/verify.component';
 
 const loginRoutes: Routes = [
   {
     path: 'login',
-    component: LoginRegistrationComponent
+    component: LoginComponent
   },
   {
     path: '',
@@ -21,11 +22,20 @@ const loginRoutes: Routes = [
   {
     path: 'verify',
     component: VerifyComponent
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent
   }
 ]
 
 @NgModule({
-  declarations: [LoginRegistrationComponent, VerifyComponent],
+  declarations: [
+    VerifyComponent, 
+    RegistrationComponent, 
+    LoginComponent
+  ],
+
   imports: [
     CommonModule,
     MatInputModule,

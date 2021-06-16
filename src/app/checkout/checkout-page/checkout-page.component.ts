@@ -15,6 +15,7 @@ export class CheckoutPageComponent implements OnInit {
   
   public currentUserInfo: any;
   public currentUserId: any;
+  public itemsInCart
 
   constructor(
     public http: HttpClient,
@@ -24,9 +25,14 @@ export class CheckoutPageComponent implements OnInit {
     this.currentUserId = localStorage.getItem("userLoggedIn");
 
     this.http.get("http://localhost:3000/userInfo/"+`${this.currentUserId}`).subscribe((data)=>{
-      this.currentUserInfo = data;
+      setTimeout(() => {
+        this.currentUserInfo = data;
+      }, 2000);
     })
-    this.productDataToDisplay();
+    setTimeout(() => {
+      console.log(this.currentUserInfo)
+      this.productDataToDisplay();
+    }, 3000);
   }
   
   

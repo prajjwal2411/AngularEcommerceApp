@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ToCartService } from '../../Services/to-cart.service';
 
@@ -31,19 +31,22 @@ export class CartComponent implements OnInit {
           this.currentUserInfo = userInfo;
           this.inCartInfo = this.currentUserInfo.userCart;
           this.showProducts(this.inCartInfo)
-        }, 1000);
+        }, 2000);
       })
     }
     
-    showProducts(productInfo){
+    showProducts(productInfo){      
       var sum = 0;
       console.log(this.inCartInfo);
       productInfo.forEach(element => {
         this.http.get("http://localhost:3000/productInfo/"+`${element}`).subscribe((data)=>{
-          this.productsInCart.push(data);
-          //this.grandTotal += this.productsInCart.prodPrice;
+          setTimeout(() => {
+            this.productsInCart.push(data);
+            sum = sum + this.productsInCart.prodPrice;
+            this.grandTotal = sum;  
+          }, 2000);
         })
-      })  
+      })
     }
     
     public items =  this.cartService.getItems(); 
